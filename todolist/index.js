@@ -20,10 +20,11 @@ app.post("/submit", (req, res) => {
   const selectImg = req.body["data-image"];
   const taskName = req.body["taskinput"];
   const dateSelect = req.body["date"];
+  newImg.push(selectImg);
   newInfoTask.push(taskName);
   newInfoDate.push(dateSelect);
   res.render("index.ejs", 
-  {imgSelect:selectImg,
+  {imgSelect:newImg,
   nameOfTask:newInfoTask, timeOfComp:newInfoDate})
 });
 
