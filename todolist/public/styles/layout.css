@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@500&family=Noto+Serif+JP:wght@700&family=Victor+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+ body{
+    margin:0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+#logotext{
+    margin:1rem 0;
+    padding-left: 1rem;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.5rem;
+}
+
+.landingtext{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 7rem;
+}
+
+.landingtext h1{
+    font-size: 4rem;
+    font-family:  'Victor Mono', monospace;
+    padding-left: 4rem;
+
+}
+
+.landingtext p{
+    padding-left: 4.5rem;
+    font-size: 1.2rem;
+    margin-top:0.7rem;
+    font-family: 'DM Serif Display', serif;
+}
+
+.trynow {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d2ae8;
+    transition: all 0.2s ease;
+    width: 15%;
+    margin-left: 4.5rem;
+    margin-top:0.7rem;
+
+}
+   
+   .trynow:active {
+    transform: scale(0.96);
+   }
+
+   .trynow:before,
+   .trynow:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.trynow:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.trynow:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+
+#selectask{
+  margin: 4rem 0;
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  justify-content: center;
+}
+   
+#imagebuttons{
+  margin:3rem 0 ;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}  
+
+#imagebuttons .row {
+ 
+
+  height: 30vh;
+  width: 80%; 
+  margin-bottom: 2rem;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+#imagebuttons .row .col{
+
+ height: 100%;
+ margin: 0 3rem;
+ border: none;
+ border-radius: 1rem;
+ cursor: pointer; 
+ transition: 0.2s ease;
+ box-shadow: 13px 18px 37px 0px rgba(0, 0, 0, 0.267);
+
+}
+
+#imagebuttons .row .col:hover {
+  filter: drop-shadow(213, 211, 211, 0.3);
+  box-shadow: 13px 18px 37px 0px rgba(82, 82, 82, 0.3); 
+}
+
+
+#imagebuttons .row .col:active {
+  border: 1px solid white; 
+}
+
+#imagebuttons .row .col img{
+  height: 50%;
+}
+
+#imagebuttons .row .col p{
+font-family:  'Victor Mono', monospace;
+padding-top:1rem;
+}
+
+.formforinputs{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+
+.input-group{
+  width: 30%;
+  margin-bottom: 3rem;
+}
+
+.form-group{
+width: 30%;
+margin-bottom: 2rem;
+}
+
+
+.container-list{
+  width:100%;
+  display: flex;
+  justify-content:center;
+  margin-top: 4rem;
+}
+
+ul{
+
+  height:100%;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #343a40;
+  border: none;
+  border-radius: 2rem;
+}
+
+
+li{
+  height:10vh;
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 0;
+  justify-content: space-around; 
+  align-items:center;
+
+}
+
+li img{
+  width: 10%;
+  border: 4px solid white;
+  border-radius: 0.7rem;
+  padding:1rem;
+  background-color: #a69f9f;
+}
+
+li .taskname{
+  text-align: center;
+}

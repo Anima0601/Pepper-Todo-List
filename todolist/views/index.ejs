@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REM TodoList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/layout.css">
+</head>
+  <body>
+    <p id="logotext">Pepper Todo List </p> 
+    <div class="landingpage row">
+        <div class="landingtext col">
+            <h1>Do Hassle Free </h1>
+         <h1>Tracking Task</h1>
+         <p>Finishing work was never this easier</p>
+         <button class="trynow" onclick="imagebuttons"><a href="#selectask" style="text-decoration: none; color: azure;"> Try Now</a></button>
+        </div>
+        <div class="landingimage col">
+            <img src="buttonimg/landingimage.png" alt="imagelanding">
+        </div>
+    </div>
+   
+
+    <h1 id="selectask">Select Your Task Category :</h1>
+
+    <form  action="/submit" method="POST">
+    <div id="imagebuttons">
+        <div class="row">  
+        <button class="image-button col" data-image="buttonimg/bath.png">
+            <img src="buttonimg/bath.png" alt="Button1" >
+            <p>Restroom</p>
+        </button>
+        <button class="image-button col" data-image="buttonimg/books.png">
+            <img src="buttonimg/books.png" alt="Button1">
+            <p>Study</p>
+        </button>
+        <button class="image-button col" data-image="buttonimg/coffee.png">
+            <img src="buttonimg/coffee.png" alt="Button1">
+            <p>Drinks</p>
+        </button>
+        <button class="image-button col" data-image="buttonimg/cooking.png">
+            <img src="buttonimg/cooking.png" alt="Button1">
+            <p>Cooking</p>
+        </button>
+        </div>
+
+        <div class="row">
+            <button class="image-button col" data-image="buttonimg/game.png">
+                <img src="buttonimg/game.png" alt="Button1">
+                <p>Playing</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/music.png">
+                <img src="buttonimg/music.png" alt="Button1">
+                <p>Music</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/sleep.png">
+                <img src="buttonimg/sleep.png" alt="Button1">
+                <p>Sleep</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/occassion.png">
+                <img src="buttonimg/occassion.png" alt="Button1">
+                <p>Special Day</p>
+            </button>
+        </div>
+
+
+        <div class="row">
+            <button class="image-button col" data-image="buttonimg/shopping.png">
+                <img src="buttonimg/shopping.png" alt="Button1">
+                <p>Shopping</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/petcare.png">
+                <img src="buttonimg/petcare.png" alt="Button1">
+                <p>Pet Care</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/vacation.png">
+                <img src="buttonimg/vacation.png" alt="Button1">
+                <p>Holiday</p>
+            </button>
+            <button class="image-button col" data-image="buttonimg/work.png">
+                <img src="buttonimg/work.png" alt="Button1">
+                <p>Work</p>
+            </button>
+        </div>
+    </div>
+
+           <div class="formforinputs">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Task</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="taskinput">
+              </div>
+              <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" name="date" class="form-control">
+              </div>  
+            <button class="trynow" style="width: 5%; margin:0">Add</button>
+        </div>
+            </form>
+         
+            
+      <% if(locals.nameOfTask && locals.timeOfComp && locals.imgSelect){ %>    
+        <div class="container-list">
+            <ul>
+                <% for(let i=0;i<nameOfTask.length && i<timeOfComp.length && i<imgSelect.length;i++){ %>
+                <li>
+                    <img src= "<%= imgSelect[i] %>">
+                   <div class="taskname"><%=nameOfTask[i]%></div>
+                   <div class="tasktime"><%=timeOfComp[i]%></div>
+                   <i class="fas fa-trash"></i>
+                </li>
+                <% } %>
+            </ul>
+        </div> 
+        <% } %>   
+
+  </body>
+</html>
