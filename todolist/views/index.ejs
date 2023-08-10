@@ -116,7 +116,7 @@
             <ul>
                 <% for(let i=0;i<nameOfTask.length && i<timeOfComp.length && i<imgSelect.length;i++){ %>
                 <li>
-                    <img src= `<%= imgSelect[i] %>`>
+                    <img src= "<%= imgSelect[i] %>">
                    <div class="taskname"><%=nameOfTask[i]%></div>
                    <div class="tasktime"><%=timeOfComp[i]%></div>
                    <i class="fas fa-trash"></i>
