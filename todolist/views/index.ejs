@@ -87,6 +87,7 @@
     </div>
 
            <div class="formforinputs">
+            <input type="hidden" id="selected-image-input" name="button">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Task</span>
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="taskinput">
@@ -98,14 +99,24 @@
             <button class="trynow" style="width: 5%; margin:0">Add</button>
         </div>
             </form>
-         
+            <script>
+                const buttons = document.querySelectorAll('.image-button');
+                
+                buttons.forEach(button => {
+                  button.addEventListener('click', event => {
+                    const selectedImage = event.currentTarget.getAttribute('data-image');
+                    document.querySelector('#selected-image-input').value = selectedImage;
+                  });
+                });
+              </script>
+              
             
       <% if(locals.nameOfTask && locals.timeOfComp && locals.imgSelect){ %>    
         <div class="container-list">
             <ul>
                 <% for(let i=0;i<nameOfTask.length && i<timeOfComp.length && i<imgSelect.length;i++){ %>
                 <li>
-                    <img src= "<%= imgSelect[i] %>">
+                    <img src= `<%= imgSelect[i] %>`>
                    <div class="taskname"><%=nameOfTask[i]%></div>
                    <div class="tasktime"><%=timeOfComp[i]%></div>
                    <i class="fas fa-trash"></i>

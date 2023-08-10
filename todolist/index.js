@@ -17,7 +17,8 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/submit", (req, res) => {
-  const selectImg = req.body["data-image"];
+  console.log(req.body);
+  const selectImg = req.body["button"];
   const taskName = req.body["taskinput"];
   const dateSelect = req.body["date"];
   newImg.push(selectImg);
