@@ -108,23 +108,75 @@
                     document.querySelector('#selected-image-input').value = selectedImage;
                   });
                 });
+
               </script>
               
-            
+
       <% if(locals.nameOfTask && locals.timeOfComp && locals.imgSelect){ %>    
         <div class="container-list">
-            <ul>
+            <ul class="listul">
                 <% for(let i=0;i<nameOfTask.length && i<timeOfComp.length && i<imgSelect.length;i++){ %>
-                <li>
+           
+                <li data-id="task<%= i %>" id="lisst">
                     <img src= "<%= imgSelect[i] %>">
                    <div class="taskname"><%=nameOfTask[i]%></div>
                    <div class="tasktime"><%=timeOfComp[i]%></div>
-                   <i class="fas fa-trash"></i>
+                   <button style="background-color: transparent; border: none;"><i class="fas fa-trash trashbutton"></i></button>
                 </li>
+                   
                 <% } %>
+            
             </ul>
         </div> 
-        <% } %>   
+        <% } %>  
 
+        <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const listItems = document.querySelectorAll('li');
+        listItems.forEach(item => {
+            const dataId = item.getAttribute('data-id');
+        });
+    });
+      
+
+            document.addEventListener("DOMContentLoaded", function() {
+    const trashButtons = document.querySelectorAll(".trashbutton");
+
+    trashButtons.forEach(button => {
+        button.addEventListener("click", event => {
+            const listItem = event.currentTarget.closest("li");
+            const dataId = listItem.getAttribute("data-id");
+
+            const numericId = parseInt(dataId.replace("task", ""), 10);
+
+            if (!isNaN(numericId)) {
+                fetch(`/delete/${numericId}`, {
+                    method: "DELETE"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    if (data.message === "Item deleted successfully") {
+                        listItem.remove();
+
+
+                        const listItems = document.querySelectorAll('li');
+                        if (listItems.length === 0) {
+                            const containerList = document.querySelector('.container-list');
+                            containerList.innerHTML = "No items in the list.";
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    });
+    });
+});
+
+
+    
+    </script>
   </body>
 </html>

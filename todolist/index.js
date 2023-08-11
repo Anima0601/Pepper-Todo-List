@@ -29,6 +29,21 @@ app.post("/submit", (req, res) => {
   nameOfTask:newInfoTask, timeOfComp:newInfoDate})
 });
 
+app.delete("/delete/:id", (req, res) => {
+  const idToDelete = parseInt(req.params.id, 10);
+  console.log("ID to delete:", idToDelete);
+  const index = newImg.findIndex((img, index) => index === idToDelete);
+  if (index !== -1) {
+    newImg.splice(index, 1);
+    newInfoTask.splice(index, 1);
+    newInfoDate.splice(index, 1);
+    res.json({ message: "Item deleted successfully" }); 
+  } else {
+    res.status(404).json({ message: "Item not found" }); 
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
