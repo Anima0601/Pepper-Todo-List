@@ -26,7 +26,7 @@ app.post("/submit", (req, res) => {
   newInfoDate.push(dateSelect);
   res.render("index.ejs", 
   {imgSelect:newImg,
-  nameOfTask:newInfoTask, timeOfComp:newInfoDate})
+  nameOfTask:newInfoTask, timeOfComp:newInfoDate.map(formatDate)})
 });
 
 app.delete("/delete/:id", (req, res) => {
@@ -43,6 +43,10 @@ app.delete("/delete/:id", (req, res) => {
   }
 });
 
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+}
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
